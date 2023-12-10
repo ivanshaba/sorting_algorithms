@@ -23,7 +23,7 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
-""1	LINE	0
+"1	LINE	0
 	#ifndef COMMAND_LINE_PROCESSING_H
 	#define COMMAND_LINE_PROCESSING_H
 	
@@ -74,7 +74,7 @@
 	
 	// Function prototype
 	char **splitString(char *string, char *delimiter);
-|3,1,1,1,50,0,1695133607,"#ifndef COMMAND_LINE_PROCESSING_H","#define COMMAND_LINE_PROCESSING_H","","// Function prototypes","void processCommandLineArguments(int argc, char *argv[]);","","#endif /* COMMAND_LINE_PROCESSING_H */","","","#ifndef PATH_ENV_VARIABLE_H","#define PATH_ENV_VARIABLE_H","","// Function prototypes","void searchAndExecuteCommand(int argc, char *argv[]);","","#endif /* PATH_ENV_VARIABLE_H */","","","#ifndef EXIT_COMMAND_H",>24
+|3,0,1,1,50,0,1695133607,"#ifndef COMMAND_LINE_PROCESSING_H","#define COMMAND_LINE_PROCESSING_H","","// Function prototypes","void processCommandLineArguments(int argc, char *argv[]);","","#endif /* COMMAND_LINE_PROCESSING_H */","","","#ifndef PATH_ENV_VARIABLE_H","#define PATH_ENV_VARIABLE_H","","// Function prototypes","void searchAndExecuteCommand(int argc, char *argv[]);","","#endif /* PATH_ENV_VARIABLE_H */","","","#ifndef EXIT_COMMAND_H",>24
 |<"#define EXIT_COMMAND_H","","// Function prototypes","void processExitCommand(int argc, char *argv[]);","","#endif /* EXIT_COMMAND_H */","","","#ifndef LIST_ENV_VARIABLES_H","#define LIST_ENV_VARIABLES_H","","// Function prototypes","void listEnvironmentVariables();","","#endif /* LIST_ENV_VARIABLES_H */","","","#ifndef CUSTOM_GETLINE_H","#define CUSTOM_GETLINE_H","","// Function prototype","ssize_t custom_getline(char **lineptr, size_t *n, FILE *stream);","",>31
 |<"#endif /* CUSTOM_GETLINE_H */","","","#ifndef STRING_SPLITTING_H","#define STRING_SPLITTING_H","","// Function prototype","char **splitString(char *string, char *delimiter);"
 "2	LINE	0
@@ -214,232 +214,264 @@
 |3,0,5,1,50,0,1695120150,"#include <stdio.h>","#include <stdlib.h>","#include <string.h>","#include <unistd.h>","","#define PROMPT \"simple_shell> \"","","int main() {","  char command[1024];","","  while (1) {","    // Display the prompt.","    printf(PROMPT);","","    // Read the command line from the user.","    fgets(command, sizeof(command), stdin);","","    // If the user entered Ctrl+D, exit.","    if (command[0] == EOF) {","      break;","    }","",>71
 |<"    // Remove the newline character from the end of the command line.","    command[strlen(command) - 1] = '\\0';","","    // Try to find the executable for the command.","    char *path = getenv(\"PATH\");","    char *executable = strtok(path, \":\");","    while (executable != NULL) {","      char full_path[1024];","      sprintf(full_path, \"%s/%s\", executable, command);","","      if (access(full_path, F_OK) == 0) {","        // Found the executable.",>40
 |<"        execve(full_path, NULL, NULL);","        break;","      }","","      executable = strtok(NULL, \":\");","    }","","    // If the executable could not be found, print an error message.","    if (executable == NULL) {","      printf(\"Command not found: %s\\n\", command);","    }","  }","","  return 0;","}",""
+""-	CHAR	0
+	#
+|3,1,36,0,1,0,1701419918,"#"
 
 # File marks:
-'0  1  46  ~/simple_shell/AUTHORS
-|4,48,1,46,1695134226,"~/simple_shell/AUTHORS"
-'1  1  21  ~/simple_shell/README.md
-|4,49,1,21,1695134166,"~/simple_shell/README.md"
-'2  1  0  ~/simple_shell/main.h
-|4,50,1,0,1695133651,"~/simple_shell/main.h"
-'3  40  30  ~/simple_shell/main.h
-|4,51,40,30,1695133630,"~/simple_shell/main.h"
-'4  40  30  ~/simple_shell/main.h
-|4,52,40,30,1695133630,"~/simple_shell/main.h"
-'5  16  0  ~/simple_shell/beatycode1.c
-|4,53,16,0,1695132808,"~/simple_shell/beatycode1.c"
-'6  49  0  ~/simple_shell/beauty_code.c
-|4,54,49,0,1695132667,"~/simple_shell/beauty_code.c"
-'7  16  0  ~/simple_shell/betty_code.p
-|4,55,16,0,1695132498,"~/simple_shell/betty_code.p"
-'8  33  0  ~/simple_shell/last_number_p.c
-|4,56,33,0,1695130988,"~/simple_shell/last_number_p.c"
-'9  65  0  ~/simple_shell/comments_p.c
-|4,57,65,0,1695130883,"~/simple_shell/comments_p.c"
+'0  15  24  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,48,15,24,1701419942,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+'1  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb
+|4,49,1,0,1701419898,"~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb"
+'2  13  63  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,50,13,63,1701419884,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+'3  13  63  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,51,13,63,1701419884,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+'4  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,52,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+'5  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,53,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+'6  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,54,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+'7  1  46  ~/simple_shell/AUTHORS
+|4,55,1,46,1695134226,"~/simple_shell/AUTHORS"
+'8  1  21  ~/simple_shell/README.md
+|4,56,1,21,1695134166,"~/simple_shell/README.md"
+'9  1  0  ~/simple_shell/main.h
+|4,57,1,0,1695133651,"~/simple_shell/main.h"
 
 # Jumplist (newest first):
--'  1  46  ~/simple_shell/AUTHORS
-|4,39,1,46,1695134226,"~/simple_shell/AUTHORS"
--'  1  21  ~/simple_shell/README.md
-|4,39,1,21,1695134166,"~/simple_shell/README.md"
--'  1  21  ~/simple_shell/README.md
-|4,39,1,21,1695134166,"~/simple_shell/README.md"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133651,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133651,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133651,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133651,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133636,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133636,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133636,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133636,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133630,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133630,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133630,"~/simple_shell/main.h"
--'  40  30  ~/simple_shell/main.h
-|4,39,40,30,1695133630,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133607,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133607,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133607,"~/simple_shell/main.h"
--'  1  0  ~/simple_shell/main.h
-|4,39,1,0,1695133607,"~/simple_shell/main.h"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  16  0  ~/simple_shell/beatycode1.c
-|4,39,16,0,1695132808,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  1  0  ~/simple_shell/beatycode1.c
-|4,39,1,0,1695132801,"~/simple_shell/beatycode1.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  49  0  ~/simple_shell/beauty_code.c
-|4,39,49,0,1695132667,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
--'  52  0  ~/simple_shell/beauty_code.c
-|4,39,52,0,1695132644,"~/simple_shell/beauty_code.c"
+-'  15  24  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,15,24,1701419942,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  13  63  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,13,63,1701419907,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb
+|4,39,1,0,1701419898,"~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb
+|4,39,1,0,1701419898,"~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb"
+-'  13  63  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,13,63,1701419884,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  13  63  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,13,63,1701419884,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,1,0,1701419771,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,1,0,1701419771,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+|4,39,1,0,1701419771,"~/alx-system_engineering-devops/0x06-regular_expressions/README.md"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  1  0  ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+|4,39,1,0,1701419762,"~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  48  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,2,48,1701333383,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  1  0  ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+|4,39,1,0,1701333344,"~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  2  30  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,2,30,1701333223,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
+-'  1  0  ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+|4,39,1,0,1701333190,"~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports"
 
 # History of marks within files (newest to oldest):
+
+> ~/alx-system_engineering-devops/0x06-regular_expressions/README.md
+	*	1701419941	0
+	"	15	24
+	^	15	25
+	.	15	24
+	+	15	24
+
+> ~/alx-system_engineering-devops/0x06-regular_expressions/7-OMG_WHY_ARE_YOU_SHOUTING.rb
+	*	1701419897	0
+	"	1	0
+
+> ~/alx-system_engineering-devops/0x06-regular_expressions/5-beginning_and_end.rb
+	*	1701419760	0
+	"	1	0
+
+> ~/alx-system_engineering-devops/0x08-networking_basics_2/1-show_attached_IPs
+	*	1701333382	0
+	"	2	48
+	^	2	49
+	.	2	48
+	+	2	48
+
+> ~/alx-system_engineering-devops/0x07-networking_basics/4-TCP_and_UDP_ports
+	*	1701333220	0
+	"	2	30
+	^	2	31
+	.	2	30
+	+	2	30
 
 > ~/simple_shell/AUTHORS
 	*	1695134225	0
