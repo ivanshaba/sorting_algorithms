@@ -261,6 +261,5 @@ $ python3 unittest -m tests/test_console.py
 ```
 
 ## Authors :black_nib:
-* **Ahmed khaled**
-* **Marwan Fouz**
+* **ndayishaba ivan**
 
